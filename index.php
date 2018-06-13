@@ -1,1 +1,1 @@
-<?php echo"OK"; exit();?>
+<?php echo"Hi guys, this is our new server for web-apps.<br> This file is on Git master branch."; exit();?>
