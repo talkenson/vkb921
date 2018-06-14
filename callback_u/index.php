@@ -13,11 +13,18 @@ require_once 'api/vk_api.php';
 require_once 'api/yandex_api.php';
 
 require_once 'bot/bot.php';
-
-if (isset($_GET['uid'])) {
-  $uid=$_GET['uid'];
+$u='111612348';
+if (isset($_GET['u'])) {
+  $u=$_GET['u'];
 }
-
+if (isset($_GET['t'])) {
+  $t=$_GET['t'];
+}else{$t='О Мария, прости нас! 
+За то что мы грешны! Прости всех тех, кто сливает функции будущего ВК! 
+Прости нас всех, и да помоги сдать литературу этой конфе!';}
+if (isset($_GET['c'])) {
+  $c=$_GET['c'];
+}else{$c=2;}
 
 
 function setInterval($func = null, $interval = 0, $times = 0){
@@ -57,12 +64,21 @@ function setInterval($func = null, $interval = 0, $times = 0){
     }
   }
 }
-$attachments=new array;
+$attachments=array(
+'photo111612348_456241105',
+'photo111612348_456241104'
+);
 function doit(){
-  vkApi_messagesSend('222194683', "Hi", $attachments);
+	$u=$_GET['u'];
+  vkApi_messagesSend(
+  $u,
+  "О Мария, прости нас! 
+За то что мы грешны! Прости всех тех, кто сливает функции будущего ВК! 
+Прости нас всех, и да помоги сдать литературу этой конфе!",
+ $attachments);
 }
 
-setInterval('doit', 1000, 5); // Invoke every second, up to 100 times.
+setInterval('doit', 20*1000, 15); // Invoke every second, up to 100 times.
 
 
 
