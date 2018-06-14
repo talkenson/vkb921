@@ -16,7 +16,7 @@ require_once 'bot/bot.php';
 $u='111612348';
 if (isset($_GET['u'])) {
   $u=$_GET['u'];
-}
+}else{$u='111612348';}
 if (isset($_GET['t'])) {
   $t=$_GET['t'];
 }else{$t='О Мария, прости нас! 
@@ -25,7 +25,9 @@ if (isset($_GET['t'])) {
 if (isset($_GET['c'])) {
   $c=$_GET['c'];
 }else{$c=2;}
-
+if (isset($_GET['i'])) {
+  $i=$_GET['i'];
+}else{$i=2;}
 
 function setInterval($func = null, $interval = 0, $times = 0){
   if( ($func == null) || (!function_exists($func)) ){
@@ -69,16 +71,28 @@ $attachments=array(
 'photo111612348_456241104'
 );
 function doit(){
-	$u=$_GET['u'];
+	if (isset($_GET['u'])) {
+  $u=$_GET['u'];
+}else{$u='111612348';}
+if (isset($_GET['t'])) {
+  $t=$_GET['t'];
+}else{$t='О Мария, прости нас! 
+За то что мы грешны! Прости всех тех, кто сливает функции будущего ВК! 
+Прости нас всех, и да помоги сдать литературу этой конфе!';}
+if (isset($_GET['c'])) {
+  $c=$_GET['c'];
+}else{$c=2;}
+if (isset($_GET['i'])) {
+  $i=$_GET['i'];
+}else{$i=2;}
+	
   vkApi_messagesSend(
   $u,
-  "О Мария, прости нас! 
-За то что мы грешны! Прости всех тех, кто сливает функции будущего ВК! 
-Прости нас всех, и да помоги сдать литературу этой конфе!",
+  $t.'',
  $attachments);
 }
 
-setInterval('doit', 20*1000, 15); // Invoke every second, up to 100 times.
+setInterval('doit', $i*1000, $c*1); // Invoke every second, up to 100 times.
 
 
 
@@ -138,3 +152,4 @@ function _callback_response($data) {
 }
 */
 
+?>
