@@ -5,15 +5,15 @@ function bot_sendMessage($user_id) {
   $user = array_pop($users_get_response);
   $msg = "Привет, {$user['first_name']}!";
 
-  $photo = _bot_uploadPhoto($user_id, BOT_IMAGES_DIRECTORY.'/cat.jpeg');
+ // $photo = _bot_uploadPhoto($user_id, BOT_IMAGES_DIRECTORY.'/cat.jpeg');
 
-  $voice_message_file_name = yandexApi_getVoice($msg);
-  $doc = _bot_uploadVoiceMessage($user_id, $voice_message_file_name);
+  //$voice_message_file_name = yandexApi_getVoice($msg);
+ // $doc = _bot_uploadVoiceMessage($user_id, $voice_message_file_name);
 
-  $attachments = array(
+  /*$attachments = array(
     'photo'.$photo['owner_id'].'_'.$photo['id'],
     'doc'.$doc['owner_id'].'_'.$doc['id'],
-  );
+  );*/
 
   vkApi_messagesSend($user_id, $msg, $attachments);
 }
