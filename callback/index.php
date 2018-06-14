@@ -1,6 +1,8 @@
 <?php
+/*
 _callback_response('9964d4df');
 exit();
+*/
 define('CALLBACK_API_EVENT_CONFIRMATION', 'confirmation');
 define('CALLBACK_API_EVENT_MESSAGE_NEW', 'message_new');
 
